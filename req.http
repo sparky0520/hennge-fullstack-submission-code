@@ -1,0 +1,7 @@
+POST /challenges/backend-recursion/004 HTTP/1.1
+Authorization: Basic ZGFyc2hqYWluMDUuaW5AZ21haWwuY29tOjE3MDQwMjIwMDY=
+Host: api.challenge.hennge.com
+Accept: */*
+Content-Type: application/json
+
+{"github_url":"https://gist.github.com/sparky0520/588c94f1b76e2df3d10e098d0a14cf74","contact_email":"darshjain05.in@gmail.com","solution_language":"python"}

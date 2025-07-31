@@ -37,17 +37,15 @@ const payload = {
   "contact_email": email,
   "solution_language": "python"
 }
-const password = generateTOTP(email, 'HENNGECHALLENGE004');
+const password = generateTOTP(email, 'HENNGECHALLENGE004', 10);
 console.log(password)
 // RFC2617 HTTP Basic Auth: base64(username:password)
 const credentials = Buffer.from(`${email}:${password}`).toString('base64');
 console.log(credentials)
-const authHeader = `Basic ${credentials}`;
-console.log(authHeader)
 const config = {
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': authHeader
+    'Authorization': `Basic ${credentials}`
   },
 };
 
