@@ -31,22 +31,19 @@ function generateTOTP(userId, secretSuffix, digits = 10) {
     return code.toString().padStart(digits, '0');
 }
 const email = "darshjain05.in@gmail.com"
-
-const username = email;
-const password = generateTOTP(email, 'HENNGECHALLENGE004');
-console.log(password)
-// RFC2617 HTTP Basic Auth: base64(username:password)
-const credentials = Buffer.from(`${username}:${password}`).toString('base64');
-console.log(credentials)
-const authHeader = `Basic ${credentials}`;
-console.log(authHeader)
-
 const url = "https://api.challenge.hennge.com/challenges/backend-recursion/004"
 const payload = {
   "github_url": "https://gist.github.com/sparky0520/588c94f1b76e2df3d10e098d0a14cf74",
   "contact_email": email,
   "solution_language": "python"
 }
+const password = generateTOTP(email, 'HENNGECHALLENGE004');
+console.log(password)
+// RFC2617 HTTP Basic Auth: base64(username:password)
+const credentials = Buffer.from(`${email}:${password}`).toString('base64');
+console.log(credentials)
+const authHeader = `Basic ${credentials}`;
+console.log(authHeader)
 const config = {
   headers: {
     'Content-Type': 'application/json',
